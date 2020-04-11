@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居中</title>
+    <link rel="stylesheet" href="./center.css">
+</head>
+
+<body>
+    <!-- 水平居中 -->
+    <div class="margin-wrap">
+        <span class="margin-dom">margin: 0 auto;</span>
+    </div>
+    <div class="text-align-wrap">
+        <span class="text-align-child">text-align: center;</span>
+        <div class="text-align-child">text-align: center;</div>
+    </div>
+
+
+    <!-- 水平 & 垂直 居中 布局 -->
+    <!-- 弹性盒布局 -->
+    <div class="flex-box">
+        <span>flex-box</span>
+    </div>
+    <div class="flex-box">
+        <span>flex-box</span>
+        <span>flex-box</span>
+    </div>
+
+    <!-- 绝对定位 position: absolute; -->
+    <!-- 居中元素宽高已设置，但不知具体值 -->
+    <div class="position-wrap1">
+        <span class="position-child1">position: absolute; margin: auto;</span>
+    </div>
+    <div class="position-wrap1-transform">
+        <span class="position-child1-transform">position: absolute; transform: translate()</span>
+    </div>
+
+    <!-- 已知居中元素宽高 -->
+    <div class="position-wrap2">
+        <span class="position-child2">position: absolute</span>
+    </div>
+
+    <!-- 利用文本居中和行高 -->
+    <div class="text-wrap">
+        <span class="text-dom">line-height</span>
+    </div>
+    <div class="text-wrap">
+        <input class="text-dom" value="line-height" />
+    </div>
+
+    <!-- 利用辅助元素 -->
+    <div class="help-dom-wrap">
+        <span class="help-center-dom">vertical-align: middle;</span>
+        <span class="help-dom"></span>
+    </div>
+
+    <!-- 利用表格布局 -->
+    <div class="table-wrap">
+        <span class="table-child">display: table-cell;</span>
+    </div>
+</body>
+
+</html>

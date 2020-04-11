@@ -1,0 +1,185 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    border: 1px solid grey;
+}
+
+span {
+    border: 1px solid lightblue;
+}
+
+/* 水平居中 */
+
+/* 
+margin: 0 auto;
+注意：
+1.居中元素必须有宽度
+2.居中元素必须为 block
+*/
+.margin-wrap {
+    width: 200px;
+    height: 200px;
+}
+
+.margin-dom {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+/* 
+text-align: center;
+注意：居中元素必须为行内元素
+*/
+.text-align-wrap {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.text-align-child {
+    display: inline-block;
+    width: 100px;
+}
+
+/* 水平 & 垂直 居中 布局 */
+/* 
+    弹性盒居中
+    inline-flex 和 inline-block 一样，对内部元素来说是个 display:flext 的容器，对外部元素来说是个 inline 的块。
+ */
+.flex-box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+使用绝对定位absolute
+居中元素设置了宽高，但不知道具体值
+注意：
+    1.父元素必须加上相对定位relative
+    2.居中的元素 宽高 必须不为auto。否则会撑开到整个父容器的大小
+*/
+.position-wrap1 {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.position-child1 {
+    width: 100px;
+    height: 30%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/* 
+使用绝对定位absolute + transforms
+居中元素设置了宽高，但不知道具体值
+注意：
+    1.父元素必须加上相对定位relative
+*/
+.position-wrap1-transform {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.position-child1-transform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* （为子元素宽高的一半，注意得是负值） */
+    transform: translate(-50%, -50%);
+    /* IE 9 */
+    -ms-transform: translate(-50%, -50%);
+    /* Safari and Chrome */
+    -webkit-transform: translate(-50%, -50%);
+}
+
+/* 
+使用绝对定位absolute
+已知居中元素宽高
+注意：
+    1.父元素必须加上相对定位relative
+    2.已知居中的元素 宽高，且 高 必须为定值（高的值非百分比）
+*/
+.position-wrap2 {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.position-child2 {
+    width: 30%;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* （为子元素高度的一半，注意得是负值） */
+    margin-top: -50px;
+    /* （为子元素宽度的一半，注意得是负值）*/
+    margin-left: -15%;
+    /* （margin也可简写 margin : -75px 0 0 -50px;）*/
+}
+
+/* 
+利用文本居中和行高
+注意：
+    1.需要是行内元素才会生效
+    2.如果有n行文字，那么将行高设为容器高度的n分之一即可。
+*/
+.text-wrap {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.text-dom {
+    display: inline-block;
+    line-height: 200px;
+}
+
+/* 
+利用辅助元素 + vertical-align: middle;
+*/
+.help-dom-wrap {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.help-center-dom {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.help-dom {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/* 
+利用表格布局
+*/
+.table-wrap {
+    display: table;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.table-child {
+    display: table-cell;
+    vertical-align: middle;
+}
