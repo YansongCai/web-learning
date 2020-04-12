@@ -1,0 +1,46 @@
+<style type="text/css">
+    .div1 {
+        border: 1px solid #000080;
+    }
+
+    .div2 {
+        border: 1px solid #800080;
+        height: 100px;
+        margin-top: 10px
+    }
+
+    .left {
+        float: left;
+        width: 20%;
+        height: 200px;
+        background: #DDD
+    }
+
+    .right {
+        float: right;
+        width: 30%;
+        height: 80px;
+        background: #DDD
+    }
+
+    /*清除浮动代码*/
+    .clearfloat:after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0
+    }
+
+    .clearfloat {
+        zoom: 1
+    }
+</style>
+<div class="div1 clearfloat">
+    <div class="left">L
+        eft</div>
+    <div class="right">Right</div>
+</div>
+<div class="div2">
+    div2
+</div>

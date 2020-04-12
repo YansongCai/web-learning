@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<!--防止拷贝博文js代码-->
+<script language="javascript">
+
+
+    function click() {
+        return false;
+    }
+
+    function click1() {
+        if (event.button == 2) {
+
+            return false;
+        }
+    }
+    function CtrlKeyDown() {
+        if (event.ctrlKey) {
+
+            return false;
+        }
+    }
+    if (window.Event)
+        document.captureEvents(Event.MOUSEUP);
+    function nocontextmenu() {
+        event.cancelBubble = true
+        event.returnValue = false;
+        return false;
+    }
+    function norightclick(e) {
+        if (window.Event) {
+            if (e.which == 2 || e.which == 3)
+                return false;
+        } else {
+            if (event.button == 2 || event.button == 3) {
+                event.cancelBubble = true
+                event.returnValue = false;
+                return false;
+            }
+        }
+    }
+
+    document.oncontextmenu = nocontextmenu; // for IE5+
+    document.onmousedown = norightclick; // for all others
+    document.onkeydown = CtrlKeyDown;
+    document.onselectstart = click;
+    document.onmousedown = click1;
+    document.oncontextmenu = function () { return false; };
+    //禁用开发者工具F12
+    document.onkeydown = function () {
+        if (window.event && window.event.keyCode == 123) {
+            event.keyCode = 0;
+            event.returnValue = false;
+            return false;
+        }
+    };
+
+    // 监听控制台的打开
+    var element = new Image();
+    Object.defineProperty(element, 'id', {
+        get: function () {
+            /* TODO */
+            window.close();
+            window.location = "about:blank";
+        }
+    });
+    console.log('%cHello', element);
+
+</script>
+
+</html>

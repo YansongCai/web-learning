@@ -1,0 +1,36 @@
+<style type="text/css">
+    .div1 {
+        border: 1px solid #800080;
+        /* 解决浮动高度塌陷代码 */
+        width: 98%;
+        overflow: hidden
+    }
+
+    .div2 {
+        border: 1px solid #800080;
+        height: 100px;
+        margin-top: 10px;
+        width: 98%
+    }
+
+    .left {
+        float: left;
+        width: 20%;
+        height: 200px;
+        background: #DDD
+    }
+
+    .right {
+        float: right;
+        width: 30%;
+        height: 80px;
+        background: #DDD
+    }
+</style>
+<div class="div1">
+    　　<div class="left">Left</div>
+    　　<div class="right">Right</div>
+</div>
+<div class="div2">
+    　　div2
+</div>
