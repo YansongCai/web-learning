@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多行省略号</title>
+    <style>
+        div {
+            margin-bottom: 20px;
+        }
+
+        .title {
+            padding-top: 20px;
+            font-weight: 900;
+        }
+
+        .content1 {
+            width: 300px;
+            /* 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。 */
+            display: -webkit-box;
+            overflow: hidden;
+            /* 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。 */
+            text-overflow: ellipsis;
+            /* IE 不兼容 */
+            -webkit-line-clamp: 2;
+            /* 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。 */
+            -webkit-box-orient: vertical;
+        }
+
+        .content2 {
+            display: block;
+            width: 300px;
+            position: relative;
+            line-height: 1.4em;
+            /* 3 times the line-height to show 3 lines */
+            height: 4.2em;
+            overflow: hidden;
+        }
+
+        .content2:after {
+            content: "...";
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 0 6px;
+            background-color: linear-gradient(to right, transparent, #fff 55%);
+        }
+
+        .content3 {
+            width: 300px;
+        }
+
+        .content4 {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">class="content1"</div>
+    <div class="content1">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </div>
+    <span class="content1">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </span>
+    <div>
+        -webkit-line-clamp用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。常见结合属性：
+        display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。
+        -webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。
+    </div>
+    <div class="title">class="content2"</div>
+    <div class="content2">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </div>
+    <span class="content2">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </span>
+
+    <div class="title">class="content3"</div>
+    <div class="content3">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </div>
+    <div class="title">class="content4"</div>
+    <div class="content4">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </div>
+</body>
+<script src="./clamp.js"></script>
+<script>
+    const content3 = document.querySelector('.content3');
+    $clamp(content3, {
+        clamp: '3',
+        // truncationHTML: 'truncationHTML',
+    });
+
+    const content4 = document.querySelector('.content4');
+    $clamp(content4, {
+        clamp: '40px',
+        animate: true,
+        // truncationHTML: 'truncationHTML',
+    });
+</script>
+
+</html>

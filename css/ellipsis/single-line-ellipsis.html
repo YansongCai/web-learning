@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单行省略号</title>
+    <style>
+        .content {
+            width: 300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        span.content {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </div>
+    <span class="content">
+        test single line ellipsis;test single line ellipsis;test single line ellipsis;test single line ellipsis;test
+        single line ellipsis;test single line ellipsis;test single line ellipsis;
+    </span>
+</body>
+
+</html>
