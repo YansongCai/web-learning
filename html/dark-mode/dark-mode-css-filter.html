@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" theme='dark-mode'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode -- css filter</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            color: #333;
+        }
+
+        html[theme='dark'] {
+            filter: invert(1) hue-rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    change theme
+    <button id="change-theme">dark</button>
+    <p>11111</p>
+    <img src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1459004720,68738816&fm=26&gp=0.jpg" alt="">
+</body>
+<script>
+    var changeThemeBtn = document.getElementById('change-theme');
+    var htmlEle = document.querySelector('html');
+
+    changeThemeBtn.addEventListener('click', function () {
+        if (changeThemeBtn.innerHTML === 'light') {
+            changeThemeBtn.innerHTML = 'dark';
+            htmlEle.setAttribute('theme', 'light');
+        } else {
+            changeThemeBtn.innerHTML = 'light';
+            htmlEle.setAttribute('theme', 'dark');
+        }
+    });
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // alert('dark');
+        // dark mode
+        changeThemeBtn.innerHTML = 'light';
+        htmlEle.setAttribute('theme', 'dark');
+    }
+</script>
+
+</html>

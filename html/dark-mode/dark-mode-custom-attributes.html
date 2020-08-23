@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode -- Custom Attributes</title>
+    <style>
+        html {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            color: #333;
+        }
+
+        html[theme="dark"] {
+            color: #f2f2f2;
+            background-color: #111;
+        }
+
+        html[theme="dark"] p {
+            color: #f2f2f2;
+        }
+
+        html[theme="dark"] button {
+            color: #f2f2f2;
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    change theme
+    <button id="change-theme">dark</button>
+    <p>11111</p>
+</body>
+<script>
+    var changeThemeBtn = document.getElementById('change-theme');
+    var htmlEle = document.querySelector('html');
+
+    changeThemeBtn.addEventListener('click', function () {
+        if (changeThemeBtn.innerHTML === 'light') {
+            changeThemeBtn.innerHTML = 'dark';
+            htmlEle.setAttribute('theme', 'light');
+        } else {
+            changeThemeBtn.innerHTML = 'light';
+            htmlEle.setAttribute('theme', 'dark');
+        }
+    });
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // alert('dark');
+        // dark mode
+        changeThemeBtn.innerHTML = 'light';
+        htmlEle.setAttribute('theme', 'dark');
+    }
+</script>
+
+</html>

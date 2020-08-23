@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode -- Custom Attributes</title>
+    <style id="theme-variables">
+        :root {
+            --bodyColor: #f2f2f2;
+            --color: #333;
+        }
+    </style>
+    <style>
+        body {
+            background-color: var(--bodyColor);
+            color: var(--color);
+        }
+    </style>
+</head>
+
+<body>
+    change theme
+    <button id="changeTheme">dark</button>
+    <p>11111</p>
+</body>
+<script>
+    var changeThemeBtn = document.getElementById('changeTheme');
+    var styleEle = document.getElementById('theme-variables');
+
+    var lightStyleVariables = `
+        :root {
+            --bodyColor: #f2f2f2;
+            --color: #333;
+        }`;
+    var darkStyleVariables = `
+        :root {
+            --bodyColor: #000;
+            --color: #fff;
+        }`;
+
+    changeThemeBtn.addEventListener('click', function () {
+        if (changeThemeBtn.innerHTML === 'light') {
+            changeThemeBtn.innerHTML = 'dark';
+            styleEle.innerHTML = lightStyleVariables;
+        } else {
+            changeThemeBtn.innerHTML = 'light';
+            styleEle.innerHTML = darkStyleVariables;
+        }
+    });
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        alert('dark');
+        // dark mode
+        changeThemeBtn.innerHTML = 'light';
+        styleEle.innerHTML = darkStyleVariables;
+    }
+</script>
+
+</html>
